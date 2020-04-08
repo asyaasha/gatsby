@@ -39,27 +39,13 @@ const globalCss = css`
     }
   }
 
-  #canvas-wrap {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-  }
-
-  #canvas {
-    width: 100%;
-    height: 100%;
-  }
-
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    color: #ffffff;
+    color: #2d2d86;
     line-height: 1.1;
 
     + * {

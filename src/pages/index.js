@@ -3,7 +3,6 @@ import Layout from '../components/layout';
 import usePosts from '../hooks/use-posts';
 import PostPreview from '../components/post-preview';
 import Insta from '../components/insta';
-import Canvas from '../components/canvas';
 import Contact from '../components/contact';
 
 export default () => {

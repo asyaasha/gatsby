@@ -1,7 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-//duotone: { shadow: "#663399", highlight: "#ddbbff" }
-
 const usePosts = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -13,12 +11,12 @@ const usePosts = () => {
             slug
             image {
               sharp: childImageSharp {
-                fluid(
-                  maxWidth: 100
-                  maxHeight: 100
+                fixed(
+                  width: 40
+                  height: 40
                   duotone: { shadow: "#663399", highlight: "#ddbbff" }
                 ) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                  ...GatsbyImageSharpFixed_withWebp_tracedSVG
                 }
               }
             }

@@ -7,6 +7,7 @@ import ReadLink from '../components/read-link';
 const imageCss = css`
   * {
     margin-top: 0;
+    max-width: 80vw;
   }
 `;
 const articleCss = css`
@@ -31,7 +32,7 @@ const PostPreview = ({ post }) => {
   if (image != null) {
     const imageProps = {
       css: imageCss,
-      fluid: image.sharp.fluid,
+      fixed: image.sharp.fixed,
       alt: title,
     };
 

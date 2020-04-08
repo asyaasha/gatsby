@@ -6,7 +6,7 @@ const derivativeOfEaseInOutCubic = t => -(2 * t - 1) * (2 * t - 1) + 1;
 
 // constants
 const BBOX = new THREE.Vector3(10, 10, 10);
-const COUNT = 20;
+const COUNT = 25;
 const colorMain = 0x0;
 const colorBg = 0xffffff;
 const colorRed = 0xff0000;
@@ -100,8 +100,11 @@ class CanvasBackground extends React.Component {
 
   resize = () => {
     const { clientWidth, clientHeight } = this.mount;
-
-    this.renderer.setSize(clientWidth, clientHeight);
+    // console.log('clientHeight');
+    // console.log(clientHeight);
+    // console.log(clientHeight * 0.8);
+    // let h = clientHeight * 0.8;
+    this.renderer.setSize(clientWidth, 200);
     this.camera.aspect = clientWidth / clientHeight;
     this.camera.updateProjectionMatrix();
   };
@@ -116,10 +119,10 @@ class CanvasBackground extends React.Component {
   };
 
   getGeometry = index => {
-    const radius = index < 4 ? index / 2 : index / 10;
-    const sphereGeometry = new THREE.SphereBufferGeometry(radius, 6, 3);
-    const thresholdAngle = 56;
-    return new THREE.EdgesGeometry(sphereGeometry, thresholdAngle);
+    const radius = index < 4 ? index / 2 : index / 8;
+    const sphereGeometry = new THREE.SphereBufferGeometry(radius, 16, 30);
+    const thresholdAngle = 3;
+    return sphereGeometry;
   };
 
   getRandomRot = () => {
@@ -147,9 +150,21 @@ class CanvasBackground extends React.Component {
     scene.fog = new THREE.Fog(colorLiliac, near, far);
     camera.position.z = 10;
 
+    // light
+    const light = new THREE.DirectionalLight(0xffffff, 1.0);
+    light.position.set(1, 2, 1);
+    this.scene.add(light);
+    this.scene.add(new THREE.AmbientLight(0x888888));
+
+    // materials
+    this.matLine = new THREE.MeshBasicMaterial({
+      color: colorLemon,
+      wireframe: true,
+    });
+
     for (let i = 0; i < COUNT; i += 1) {
       const geometry = getGeometry(i);
-      const mesh = new THREE.Mesh(geometry, material);
+      const mesh = new THREE.Mesh(geometry, this.matLine);
       mesh.position.copy(getRandomPos());
       mesh.rot = getRandomRot();
       sceneMeshes.push(mesh);
