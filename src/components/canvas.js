@@ -17,6 +17,10 @@ const colorLiliac = 0x00aca2c8;
 class CanvasBackground extends React.Component {
   constructor(props) {
     super(props);
+    this._transitionStartTime = 0;
+    this._transitionDuration = 0;
+    this._transitionIsBackward = false;
+
     this.currTime = Date.now();
     this.camera = null;
     this.scene = null;

@@ -3,7 +3,6 @@ import { Global, css } from '@emotion/core';
 import Helmet from 'react-helmet';
 import Header from './header';
 import useSiteMetadata from '../hooks/use-sitemetadata';
-import Canvas from '../components/canvas';
 
 const mainCss = css`
   margin: 2rem auto;
@@ -60,6 +59,22 @@ const globalCss = css`
   li {
     margin-top: 0.25rem;
   }
+
+  .iframewrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56%;
+    margin-bottom: 1rem;
+  }
+  iframe {
+    border: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
 `;
 
 const Layout = ({ children }) => {
@@ -73,7 +88,6 @@ const Layout = ({ children }) => {
         <title>{title}</title>
         <meta name="description" content={description} />
       </Helmet>
-      <Canvas />
       <Header />
       <main id="main" css={mainCss}>
         {children}

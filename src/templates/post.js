@@ -23,7 +23,7 @@ const pCss = css`
   font-size: 0.75rem;
 `;
 const giphCss = css`
-  width: 350px;
+  max-width: 320px;
 `;
 
 const PostTemplate = ({ data: { mdx: post } }) => {
