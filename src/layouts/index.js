@@ -1,5 +1,5 @@
 import React from 'react';
-import Transition from '../components/Transition';
+import Transition from '../components/transition';
 import Canvas from '../components/canvas';
 
 import 'normalize.css';
