@@ -38,7 +38,7 @@
     "react-helmet": "^5.2.1",
     "react-three-fiber": "^4.0.23",
     "react-transition-group": "^4.3.0",
-    "three": "^0.115.0"
+    "three": "^0.125.0"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
